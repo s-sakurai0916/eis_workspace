@@ -43,3 +43,4 @@ out/
 .env
 password.txt
 init-db.sql
+/db/db-store/
