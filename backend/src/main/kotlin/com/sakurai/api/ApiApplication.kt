@@ -1,11 +1,11 @@
-package com.example.backend
+package com.sakurai.api
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class BackendApplication
+class ApiApplication
 
 fun main(args: Array<String>) {
-	runApplication<BackendApplication>(*args)
+	runApplication<ApiApplication>(*args)
 }
