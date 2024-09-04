@@ -1,21 +1,64 @@
 package com.sakurai.api.controller
 
+import com.sakurai.api.dto.request.NewTestUserBody
+import com.sakurai.api.dto.request.SearchTestUserParam
+import com.sakurai.api.dto.response.TestUserListResponse
+import com.sakurai.api.dto.response.TestUserResponse
+import com.sakurai.api.exception.ValidationException
+import com.sakurai.api.service.impl.TestUserService
+import org.jetbrains.annotations.NotNull
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.http.ResponseEntity
+import org.springframework.validation.BindingResult
+import org.springframework.validation.annotation.Validated
+import org.springframework.web.bind.annotation.*
+
 
 @RestController
-@RequestMapping("/test")
+@RequestMapping("/test-user")
 class TestController {
-//    @Autowired
-//    lateinit var testRepository: TestRepository
+    @Autowired
+    lateinit var testUserService: TestUserService
+
+    @GetMapping("/list")
+    fun getTestUserList(
+        @ModelAttribute @Validated param: SearchTestUserParam,
+        result: BindingResult
+    ): ResponseEntity<TestUserListResponse>? {
+        val response = testUserService.getTestUserList(param)
+        return ResponseEntity.ok(TestUserListResponse(response))
+    }
+
+    @GetMapping("")
+    fun getTestUser(
+        @RequestParam @NotNull id: Int,
+        result: BindingResult
+    ): ResponseEntity<TestUserResponse>? {
+        if (result.hasErrors()) throw ValidationException(result.fieldErrors)
+        val response = testUserService.getTestUser(id)
+        return ResponseEntity.ok(TestUserResponse(response))
+    }
+    @PostMapping("")
+    fun createTestUser(
+        @RequestBody @Validated body: NewTestUserBody,
+        result: BindingResult
+    ) {
+        if (result.hasErrors()) throw ValidationException(result.fieldErrors)
+
+        val response = testUserService.create(body)
+    }
+//    @PutMapping("")
+//    fun updateTestUser(
 //
-//    @GetMapping("")
-//    fun test(): String? {
-//        // 2024年9月2日時点のテスト用コード
-//        val testEntity = testRepository.findById(1)
+//    ) {
+//        if (result.hasErrors()) throw ValidationException(result.fieldErrors)
+//    }
 //
-//        return testEntity.get().value
+//    @DeleteMapping("")
+//    fun delete(
+//        @RequestParam @NotNull id: Int,
+//        result: BindingResult
+//    ){
+//
 //    }
 }
