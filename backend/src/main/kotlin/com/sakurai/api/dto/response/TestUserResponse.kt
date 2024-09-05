@@ -1,7 +1,6 @@
 package com.sakurai.api.dto.response
 import com.sakurai.api.model.mapper.TestUser
 import com.sakurai.api.util.DateTimeUtil
-import java.util.stream.Stream
 
 /** ユーザ(テスト用)取得レスポンス */
 data class TestUserResponse(

@@ -1,7 +1,6 @@
 package com.sakurai.api.util
-import java.text.SimpleDateFormat
 import java.time.LocalDateTime
-import java.util.Locale
+import java.time.format.DateTimeFormatter
 
 /** 日付のユーティリティ */
 class DateTimeUtil {
@@ -13,7 +12,7 @@ class DateTimeUtil {
          * @return yyyy/MM/dd HH:mm:ss
          */
         fun toSimpleDateStr(value: LocalDateTime?): String {
-            return if (value != null) SimpleDateFormat("yyyy/MM/dd HH:mm:ss", Locale.getDefault()).format(value) else ""
+            return if (value != null) value.format(DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss")) else ""
         }
     }
 }

@@ -1,7 +1,8 @@
 package com.sakurai.api.dto.request
 
 import java.time.LocalDateTime
-import org.jetbrains.annotations.NotNull
+
+
 data class NewTestUserBody (
     var name: String?,
     var nameRuby: String?,

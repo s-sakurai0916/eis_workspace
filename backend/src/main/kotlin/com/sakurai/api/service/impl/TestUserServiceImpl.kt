@@ -3,6 +3,7 @@ package com.sakurai.api.service.impl
 import com.sakurai.api.dto.request.NewTestUserBody
 import com.sakurai.api.dto.request.SearchTestUserParam
 import com.sakurai.api.model.mapper.TestUser
+import com.sakurai.api.repository.TestUserRepository
 import com.sakurai.api.repository.mapper.*
 import org.springframework.stereotype.Service
 import java.time.LocalDateTime

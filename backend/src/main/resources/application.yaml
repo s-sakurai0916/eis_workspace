@@ -6,6 +6,8 @@ spring:
     url: ${DATABASE_URL}
     username: ${APP_DATABASE_USER}
     password: ${APP_DATABASE_PASSWORD}
+  jackson:
+    property-naming-strategy: SNAKE_CASE
   jpa:
     show-sql: true
     hibernate:
