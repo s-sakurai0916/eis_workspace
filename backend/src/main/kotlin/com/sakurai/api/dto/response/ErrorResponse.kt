@@ -10,7 +10,6 @@ data class ErrorResponse(
 ) {
 
     companion object {
-
         /**
          * リクエスト形式不正エラー
          *

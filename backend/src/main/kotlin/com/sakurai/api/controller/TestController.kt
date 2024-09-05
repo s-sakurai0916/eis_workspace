@@ -13,7 +13,6 @@ import org.springframework.validation.BindingResult
 import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.*
 
-
 @RestController
 @RequestMapping("/test-user")
 class TestController {
@@ -31,34 +30,38 @@ class TestController {
 
     @GetMapping("")
     fun getTestUser(
-        @RequestParam @NotNull id: Int,
-        result: BindingResult
+        @RequestParam @NotNull id: Int
     ): ResponseEntity<TestUserResponse>? {
-        if (result.hasErrors()) throw ValidationException(result.fieldErrors)
         val response = testUserService.getTestUser(id)
         return ResponseEntity.ok(TestUserResponse(response))
     }
+
     @PostMapping("")
     fun createTestUser(
         @RequestBody @Validated body: NewTestUserBody,
         result: BindingResult
     ) {
         if (result.hasErrors()) throw ValidationException(result.fieldErrors)
-
-        val response = testUserService.create(body)
+        println(body)
+        testUserService.create(body)
     }
-//    @PutMapping("")
-//    fun updateTestUser(
-//
-//    ) {
-//        if (result.hasErrors()) throw ValidationException(result.fieldErrors)
-//    }
-//
-//    @DeleteMapping("")
-//    fun delete(
-//        @RequestParam @NotNull id: Int,
-//        result: BindingResult
-//    ){
-//
-//    }
+
+    @PutMapping("")
+    fun updateTestUser(
+        @RequestParam @NotNull id: Int,
+        @RequestBody @Validated body: NewTestUserBody,
+        result: BindingResult
+    ) {
+        if (result.hasErrors()) throw ValidationException(result.fieldErrors)
+        println(id)
+        println(body)
+        testUserService.update(id, body)
+    }
+
+    @DeleteMapping("")
+    fun delete(
+        @RequestParam @NotNull id: Int
+    ){
+        testUserService.delete(id)
+    }
 }

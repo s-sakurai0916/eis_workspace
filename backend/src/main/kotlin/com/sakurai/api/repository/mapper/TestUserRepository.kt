@@ -26,17 +26,20 @@ interface TestUserRepository : TestUserMapper {
         FROM
           test_user
         <where>
+          <if test="id != null">
+            AND id = #{id, jdbcType=JdbcType.VARCHAR)
+          </if>
           <if test="name != null">
             AND name = #{name, jdbcType=JdbcType.VARCHAR)
           </if>
         </where>        
         </script>
     """)
-    @Results(id="TestUserResult", value = [
+    @Results(id="selectByCondition", value = [
         Result(column="id", property="id", jdbcType= JdbcType.INTEGER, id=true),
         Result(column="name", property="name", jdbcType= JdbcType.VARCHAR),
         Result(column="name_ruby", property="nameRuby", jdbcType= JdbcType.VARCHAR),
-        Result(column="gender", property="gender", jdbcType= JdbcType.BIT),
+        Result(column="gender", property="gender", jdbcType= JdbcType.INTEGER),
         Result(column="address", property="address", jdbcType= JdbcType.VARCHAR),
         Result(column="created_at", property="createdAt", jdbcType= JdbcType.TIMESTAMP),
         Result(column="created_by", property="createdBy", jdbcType= JdbcType.INTEGER),

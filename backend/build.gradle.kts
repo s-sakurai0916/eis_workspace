@@ -35,6 +35,9 @@ dependencies {
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3")
+	implementation("org.mybatis.generator:mybatis-generator-core:1.4.1")
+	implementation("mysql:mysql-connector-java:8.0.30")
+	implementation("org.mybatis.dynamic-sql:mybatis-dynamic-sql:1.5.2")
 	compileOnly("org.projectlombok:lombok")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	runtimeOnly("com.mysql:mysql-connector-j")
@@ -59,6 +62,7 @@ val mybatisGenerator: Configuration by configurations.creating
 dependencies {
     mybatisGenerator("org.mybatis.generator:mybatis-generator-core:1.4.1")
     mybatisGenerator("mysql:mysql-connector-java:8.0.30")
+	mybatisGenerator("org.mybatis.dynamic-sql:mybatis-dynamic-sql:1.5.2")
 }
 task("mybatisGenerator") {
     doLast {
