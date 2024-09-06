@@ -38,6 +38,7 @@ dependencies {
 	implementation("org.mybatis.generator:mybatis-generator-core:1.4.1")
 	implementation("mysql:mysql-connector-java:8.0.30")
 	implementation("org.mybatis.dynamic-sql:mybatis-dynamic-sql:1.5.2")
+	implementation("com.opencsv:opencsv:5.6")
 	compileOnly("org.projectlombok:lombok")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	runtimeOnly("com.mysql:mysql-connector-j")

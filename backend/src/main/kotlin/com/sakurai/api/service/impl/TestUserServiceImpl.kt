@@ -12,7 +12,7 @@ import java.time.LocalDateTime
 class TestUserServiceImpl (
     private val testUserRepository: TestUserRepository
 ) : TestUserService {
-    override fun getTestUserList(param: SearchTestUserParam): List<TestUser> {
+    override fun searchTestUser(param: SearchTestUserParam): List<TestUser> {
         return testUserRepository.selectByCondition(param)
     }
     override fun getTestUser(id: Int): TestUser? {

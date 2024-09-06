@@ -2,6 +2,7 @@ package com.sakurai.api.controller
 
 import com.sakurai.api.dto.request.NewTestUserBody
 import com.sakurai.api.dto.request.SearchTestUserParam
+import com.sakurai.api.dto.response.SuccessResponse
 import com.sakurai.api.dto.response.TestUserListResponse
 import com.sakurai.api.dto.response.TestUserResponse
 import com.sakurai.api.exception.ValidationException
@@ -19,12 +20,12 @@ class TestController {
     @Autowired
     lateinit var testUserService: TestUserService
 
-    @GetMapping("/list")
+    @GetMapping("/search")
     fun getTestUserList(
         @ModelAttribute @Validated param: SearchTestUserParam,
         result: BindingResult
     ): ResponseEntity<TestUserListResponse>? {
-        val response = testUserService.getTestUserList(param)
+        val response = testUserService.searchTestUser(param)
         return ResponseEntity.ok(TestUserListResponse(response))
     }
 
@@ -64,4 +65,13 @@ class TestController {
     ){
         testUserService.delete(id)
     }
+
+//    @GetMapping("/create-file")
+//    fun createFile(
+//        @RequestParam @NotNull id: Int
+//    ): ResponseEntity<TestUserResponse>? {
+//        val testUser = testUserService.getTestUser(id)
+//
+//        return ResponseEntity.ok(TestUserResponse(response))
+//    }
 }
