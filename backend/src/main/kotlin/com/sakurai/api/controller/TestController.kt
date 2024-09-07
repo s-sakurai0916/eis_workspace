@@ -20,6 +20,12 @@ class TestController {
     @Autowired
     lateinit var testUserService: TestUserService
 
+    @GetMapping("")
+    fun getAllList(): ResponseEntity<TestUserListResponse>? {
+        val response = testUserService.getAllTestUser()
+        return ResponseEntity.ok(TestUserListResponse(response))
+    }
+
     @GetMapping("/search")
     fun getTestUserList(
         @ModelAttribute @Validated param: SearchTestUserParam,
@@ -29,7 +35,7 @@ class TestController {
         return ResponseEntity.ok(TestUserListResponse(response))
     }
 
-    @GetMapping("")
+    @GetMapping("/select")
     fun getTestUser(
         @RequestParam @NotNull id: Int
     ): ResponseEntity<TestUserResponse>? {

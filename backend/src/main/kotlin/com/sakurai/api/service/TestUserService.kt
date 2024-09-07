@@ -8,6 +8,8 @@ import com.sakurai.api.model.mapper.TestUser
  * ユーザ(テスト用)　サービスインターフェース.
  */
 interface TestUserService {
+    // 情報をすべて取得
+    fun getAllTestUser() : List<TestUser>
     // 検索条件に該当する情報を取得
     fun searchTestUser(param: SearchTestUserParam) : List<TestUser>
     // 個別取得

@@ -12,6 +12,9 @@ import java.time.LocalDateTime
 class TestUserServiceImpl (
     private val testUserRepository: TestUserRepository
 ) : TestUserService {
+    override fun getAllTestUser(): List<TestUser> {
+        return testUserRepository.selectAll()
+    }
     override fun searchTestUser(param: SearchTestUserParam): List<TestUser> {
         return testUserRepository.selectByCondition(param)
     }

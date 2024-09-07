@@ -25,6 +25,35 @@ interface TestUserRepository : TestUserMapper {
             updated_by
         FROM
           test_user
+        </script>
+    """)
+    @Results(id="selectByCondition", value = [
+        Result(column="id", property="id", jdbcType= JdbcType.INTEGER, id=true),
+        Result(column="name", property="name", jdbcType= JdbcType.VARCHAR),
+        Result(column="name_ruby", property="nameRuby", jdbcType= JdbcType.VARCHAR),
+        Result(column="gender", property="gender", jdbcType= JdbcType.INTEGER),
+        Result(column="address", property="address", jdbcType= JdbcType.VARCHAR),
+        Result(column="created_at", property="createdAt", jdbcType= JdbcType.TIMESTAMP),
+        Result(column="created_by", property="createdBy", jdbcType= JdbcType.INTEGER),
+        Result(column="updated_at", property="updatedAt", jdbcType= JdbcType.TIMESTAMP),
+        Result(column="updated_by", property="updatedBy", jdbcType= JdbcType.INTEGER)
+    ])
+    fun selectAll(): List<TestUser>
+
+    @Select("""
+        <script>
+        SELECT
+            id,
+            name,
+            name_ruby,
+            gender,
+            address,
+            created_at,
+            created_by,
+            updated_at,
+            updated_by
+        FROM
+          test_user
         <where>
           <if test="id != null">
             AND id = #{id, jdbcType=JdbcType.VARCHAR)
