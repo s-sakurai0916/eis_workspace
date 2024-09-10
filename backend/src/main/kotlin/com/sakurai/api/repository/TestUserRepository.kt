@@ -27,7 +27,7 @@ interface TestUserRepository : TestUserMapper {
           test_user
         </script>
     """)
-    @Results(id="selectByCondition", value = [
+    @Results(id="selectAll", value = [
         Result(column="id", property="id", jdbcType= JdbcType.INTEGER, id=true),
         Result(column="name", property="name", jdbcType= JdbcType.VARCHAR),
         Result(column="name_ruby", property="nameRuby", jdbcType= JdbcType.VARCHAR),

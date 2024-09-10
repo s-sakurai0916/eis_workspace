@@ -1,9 +1,36 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <v-app>
+    <v-system-bar color="secondary">
+      System Bar
+    </v-system-bar>
+
+    <v-app-bar color="primary">
+      <v-app-bar-title>
+        Application Bar
+      </v-app-bar-title>
+    </v-app-bar>
+
+    <v-navigation-drawer permanent>
+      <nav>
+        <router-link to="/">Home</router-link>
+        <router-link to="/about">About</router-link>
+        <router-link to="/testUser">テストユーザ</router-link>
+      </nav>
+    </v-navigation-drawer>
+
+    <v-main>
+      <router-view/>
+    </v-main>
+
+    <v-bottom-navigation>
+      Button Navigation
+    </v-bottom-navigation>
+
+    <v-footer color="primary" app>
+      Footer
+    </v-footer>
+
+  </v-app>
 </template>
 
 <style>
