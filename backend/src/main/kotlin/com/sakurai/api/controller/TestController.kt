@@ -27,7 +27,7 @@ class TestController {
     }
 
     @GetMapping("/search")
-    fun getTestUserList(
+    fun searchTestUser(
         @ModelAttribute @Validated param: SearchTestUserParam,
         result: BindingResult
     ): ResponseEntity<TestUserListResponse>? {
@@ -35,9 +35,9 @@ class TestController {
         return ResponseEntity.ok(TestUserListResponse(response))
     }
 
-    @GetMapping("/select")
+    @GetMapping("/{Id}")
     fun getTestUser(
-        @RequestParam @NotNull id: Int
+        @PathVariable @NotNull id: Int
     ): ResponseEntity<TestUserResponse>? {
         val response = testUserService.getTestUser(id)
         return ResponseEntity.ok(TestUserResponse(response))
@@ -53,9 +53,9 @@ class TestController {
         testUserService.create(body)
     }
 
-    @PutMapping("")
+    @PutMapping("/{Id}")
     fun updateTestUser(
-        @RequestParam @NotNull id: Int,
+        @PathVariable @NotNull id: Int,
         @RequestBody @Validated body: NewTestUserBody,
         result: BindingResult
     ) {
@@ -65,9 +65,9 @@ class TestController {
         testUserService.update(id, body)
     }
 
-    @DeleteMapping("")
+    @DeleteMapping("/{Id}")
     fun delete(
-        @RequestParam @NotNull id: Int
+        @PathVariable @NotNull id: Int
     ){
         testUserService.delete(id)
     }
