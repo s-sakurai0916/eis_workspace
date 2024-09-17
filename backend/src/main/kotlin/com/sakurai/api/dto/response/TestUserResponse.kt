@@ -7,7 +7,7 @@ data class TestUserResponse(
     var id: Int? = null,
     var name: String? = null,
     var nameRuby: String? = null,
-    var gender: Boolean? = null,
+    var gender: Char? = null,
     var address: String? = null,
     var createdDate: String? = null,
     var createdBy: Int? = null,

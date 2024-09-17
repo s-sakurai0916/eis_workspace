@@ -29,9 +29,9 @@ class TestUserServiceImpl (
             gender = body.gender,
             address = body.address,
             createdAt = LocalDateTime.now(),
-            createdBy = body.createdBy,
+//            createdBy = body.createdBy,
             updatedAt = LocalDateTime.now(),
-            updatedBy = body.updatedBy,
+//            updatedBy = body.updatedBy,
         )
         testUserRepository.insert(newTestUser)
     }
@@ -44,7 +44,7 @@ class TestUserServiceImpl (
             gender = body.gender,
             address = body.address,
             updatedAt = LocalDateTime.now(),
-            updatedBy = body.updatedBy,
+//            updatedBy = body.updatedBy,
         )
         testUserRepository.updateByPrimaryKeySelective(newTestUser)
     }

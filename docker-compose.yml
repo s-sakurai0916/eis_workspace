@@ -47,7 +47,7 @@ services:
       - ./db/config/my.cnf:/etc/mysql/conf.d/my.cnf
       - ./db/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
     ports:
-      - '3306:3306' # ホストの3306が既に使用されているため3307にマッピング
+      - '3306:3306'
     environment:
       - MYSQL_DATABASE=${MYSQL_DATABASE}
       - MYSQL_ROOT_PASSWORD_FILE=/run/secrets/db-password

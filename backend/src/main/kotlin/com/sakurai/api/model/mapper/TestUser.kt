@@ -9,7 +9,7 @@ data class TestUser(
     var id: Int? = null,
     var name: String? = null,
     var nameRuby: String? = null,
-    var gender: Boolean? = null,
+    var gender: Char? = null,
     var address: String? = null,
     var createdAt: LocalDateTime? = null,
     var createdBy: Int? = null,

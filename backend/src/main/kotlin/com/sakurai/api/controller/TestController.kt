@@ -2,7 +2,6 @@ package com.sakurai.api.controller
 
 import com.sakurai.api.dto.request.NewTestUserBody
 import com.sakurai.api.dto.request.SearchTestUserParam
-import com.sakurai.api.dto.response.SuccessResponse
 import com.sakurai.api.dto.response.TestUserListResponse
 import com.sakurai.api.dto.response.TestUserResponse
 import com.sakurai.api.exception.ValidationException
