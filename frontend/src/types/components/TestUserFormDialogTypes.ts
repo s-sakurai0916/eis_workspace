@@ -1,13 +1,18 @@
 export interface FormData {
-  name: String;
-  nameRuby: String;
+  name: string;
+  nameRuby: string;
   gender: string;
-  address: String;
+  address: string;
 }
 
-export const initialFormData: FormData = {
+export interface Item extends FormData {
+id: number;
+}
+
+export const defaultItem: Item = {
+  id: 0,
   name: '',
-  nameRuby:  '',
+  nameRuby: '',
   gender: '0',
-  address:  ''
+  address: ''
 };

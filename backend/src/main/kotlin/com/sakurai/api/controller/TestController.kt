@@ -1,11 +1,11 @@
 package com.sakurai.api.controller
 
-import com.sakurai.api.dto.request.NewTestUserBody
-import com.sakurai.api.dto.request.SearchTestUserParam
-import com.sakurai.api.dto.response.TestUserListResponse
-import com.sakurai.api.dto.response.TestUserResponse
+import com.sakurai.api.dto.request.NewTestUsersBody
+import com.sakurai.api.dto.request.SearchTestUsersParam
+import com.sakurai.api.dto.response.TestUsersListResponse
+import com.sakurai.api.dto.response.TestUsersResponse
 import com.sakurai.api.exception.ValidationException
-import com.sakurai.api.service.impl.TestUserService
+import com.sakurai.api.service.impl.TestUsersService
 import org.jetbrains.annotations.NotNull
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
@@ -14,68 +14,68 @@ import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.*
 
 @RestController
-@RequestMapping("/test-user")
+@RequestMapping("/test-users")
 class TestController {
     @Autowired
-    lateinit var testUserService: TestUserService
+    lateinit var testUsersService: TestUsersService
 
     @GetMapping("")
-    fun getAllList(): ResponseEntity<TestUserListResponse>? {
-        val response = testUserService.getAllTestUser()
-        return ResponseEntity.ok(TestUserListResponse(response))
+    fun getAllList(): ResponseEntity<TestUsersListResponse>? {
+        val response = testUsersService.getAllTestUsers()
+        return ResponseEntity.ok(TestUsersListResponse(response))
     }
 
     @GetMapping("/search")
     fun searchTestUser(
-        @ModelAttribute @Validated param: SearchTestUserParam,
+        @ModelAttribute @Validated param: SearchTestUsersParam,
         result: BindingResult
-    ): ResponseEntity<TestUserListResponse>? {
-        val response = testUserService.searchTestUser(param)
-        return ResponseEntity.ok(TestUserListResponse(response))
+    ): ResponseEntity<TestUsersListResponse>? {
+        val response = testUsersService.searchTestUsers(param)
+        return ResponseEntity.ok(TestUsersListResponse(response))
     }
 
     @GetMapping("/{Id}")
     fun getTestUser(
         @PathVariable @NotNull id: Int
-    ): ResponseEntity<TestUserResponse>? {
-        val response = testUserService.getTestUser(id)
-        return ResponseEntity.ok(TestUserResponse(response))
+    ): ResponseEntity<TestUsersResponse>? {
+        val response = testUsersService.getTestUsers(id)
+        return ResponseEntity.ok(TestUsersResponse(response))
     }
 
     @PostMapping("")
     fun createTestUser(
-        @RequestBody @Validated body: NewTestUserBody,
+        @RequestBody @Validated body: NewTestUsersBody,
         result: BindingResult
     ) {
         if (result.hasErrors()) throw ValidationException(result.fieldErrors)
         println(body)
-        testUserService.create(body)
+        testUsersService.create(body)
     }
 
     @PutMapping("/{Id}")
     fun updateTestUser(
         @PathVariable @NotNull id: Int,
-        @RequestBody @Validated body: NewTestUserBody,
+        @RequestBody @Validated body: NewTestUsersBody,
         result: BindingResult
     ) {
         if (result.hasErrors()) throw ValidationException(result.fieldErrors)
         println(id)
         println(body)
-        testUserService.update(id, body)
+        testUsersService.update(id, body)
     }
 
     @DeleteMapping("/{Id}")
     fun delete(
         @PathVariable @NotNull id: Int
     ){
-        testUserService.delete(id)
+        testUsersService.delete(id)
     }
 
 //    @GetMapping("/create-file")
 //    fun createFile(
 //        @RequestParam @NotNull id: Int
 //    ): ResponseEntity<TestUserResponse>? {
-//        val testUser = testUserService.getTestUser(id)
+//        val testUser = testUsersService.getTestUser(id)
 //
 //        return ResponseEntity.ok(TestUserResponse(response))
 //    }

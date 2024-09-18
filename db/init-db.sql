@@ -2,7 +2,7 @@ create user 'app_user'@'%' identified by 'appUserPassword';
 grant select,insert,update,delete on eis_db.* to 'app_user'@'%';
 
 CREATE TABLE test_users (
-    id INT AUTO_INCREMENT PRIMARY KEY COMMENT 'ユーザーの一意の識別子',
+    id INT AUTO_INCREMENT COMMENT 'ユーザーの一意の識別子',
     name VARCHAR(50) NOT NULL COMMENT 'ユーザーの名前',
     name_ruby VARCHAR(50) NOT NULL COMMENT 'ユーザーの名前のフリガナ',
     email VARCHAR(100) NOT NULL UNIQUE COMMENT 'ユーザーのメールアドレス',

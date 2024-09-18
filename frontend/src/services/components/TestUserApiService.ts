@@ -2,23 +2,23 @@ import http from "../../http-common";
 
 class TestUserApiService {
   getAll(): Promise<any> {
-      return http.get("/test-user");
+      return http.get("/test-users");
     }
 
   select(id: any): Promise<any> {
-    return http.get(`/test-user/${id}`);
+    return http.get(`/test-users/${id}`);
   }
 
-  create(data: any): Promise<any> {
-    return http.post("/test-user", data);
+  insert(data: any): Promise<any> {
+    return http.post("/test-users", data);
   }
 
   update(id: any, data: any): Promise<any> {
-    return http.put(`/test-user/${id}`, data);
+    return http.put(`/test-users/${id}`, data);
   }
 
   delete(id: any): Promise<any> {
-    return http.delete(`/test-user/${id}`);
+    return http.delete(`/test-users/${id}`);
   }
 
 }

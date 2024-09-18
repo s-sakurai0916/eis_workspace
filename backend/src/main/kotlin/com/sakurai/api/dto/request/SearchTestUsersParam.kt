@@ -1,6 +1,6 @@
 package com.sakurai.api.dto.request
 
-data class SearchTestUserParam (
+data class SearchTestUsersParam (
     var id: Int,
     var name: String
 )

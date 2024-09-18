@@ -77,19 +77,25 @@
   "keyToString": {
     "Docker.frontend/Dockerfile.executor": "Run",
     "Gradle.backend [build].executor": "Run",
+    "Gradle.ソースのダウンロード.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/自宅学習用/eis_workspace",
+    "last_opened_file_path": "D:/自宅学習用/eis_workspace/frontend/src/components/common",
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\自宅学習用\eis_workspace\frontend\src\components\common" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\自宅学習用\eis_workspace\frontend\src\services\components" />
+      <recent name="D:\自宅学習用\eis_workspace\frontend\src\components" />
+      <recent name="D:\自宅学習用\eis_workspace\frontend\src" />
+      <recent name="D:\自宅学習用\eis_workspace\backend\src\main\kotlin\com\sakurai\api\common" />
       <recent name="D:\自宅学習用\eis_workspace\frontend\src\plugins\vuetify" />
-      <recent name="C:\Users\sugur\OneDrive\ドキュメント\自宅学習用\eis_workspace\frontend\src\views" />
-      <recent name="C:\Users\sugur\OneDrive\ドキュメント\自宅学習用\eis_workspace\frontend" />
     </key>
     <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
       <recent name="com.sakurai.api.dto.response" />

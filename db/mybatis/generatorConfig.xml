@@ -31,7 +31,7 @@
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
         <!-- コードを生成するテーブルを指定 -->
-        <table tableName="test_user">
+        <table tableName="test_users">
             <!-- PKがオートインクリメント系の場合はInsert後に利用したモデルクラスの変数に自動でPK値が返却されるように設定 -->
             <generatedKey column="id" sqlStatement="MySql" identity="true" />
         </table>
